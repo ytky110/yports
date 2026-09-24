@@ -1,0 +1,5 @@
+pkgversion=2
+name=aagen
+version=1.2.1
+arch=x86_64
+os=freebsd
