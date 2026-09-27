@@ -1,24 +1,14 @@
-CC = gcc
-FLAGS = -Wall -Werror --std=c99 
-SRC = src/aagen.c
-TARGET = bin/aagen
+SRC_URL = https://github.com/ytky110/aagen.git
 
-$(TARGET): $(SRC)
-	mkdir -p bin
-	$(CC) $(FLAGS) $^ -o $@
+.PHONY: build clean
 
-.PHONY: clean
+build: fetch
+	mkdir -p $(PKGROOT)/bin
+	$(MAKE) -C $(SRC_DIR)
+	cp $(SRC_DIR)/bin/* $(PKGROOT)/bin
+	../yports/makepkginfo.sh pkginfo $(PKGROOT)
 
-clean:
-	rm -fr bin/
-	rm -fr pkg/
-	.ypkg2/CLEANPKG
+clean: yports_clean
+	rm -fr $(SRC_DIR)/bin
 
-# For yports
-
-installpkg2: buildpkg2
-	ypkg2 install pkg/*
-
-buildpkg2: $(TARGET)
-	mkdir -p pkg
-	.ypkg2/MAKEPKG
+include ../yports/yports.mk

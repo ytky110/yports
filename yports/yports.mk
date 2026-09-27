@@ -1,0 +1,26 @@
+SRC_URL ?= # Set in port Makefile
+
+PKG_DIR ?= pkg
+SRC_DIR ?= src
+PKGROOT ?= pkgroot
+
+.PHONY: fetch makepkg install yports_clean yports_clean_src
+
+fetch: yports_clean_src
+	git clone $(SRC_URL) $(SRC_DIR)
+
+makepkg: build $(PKGROOT)/.pkginfo
+	mkdir -p $(PKG_DIR)
+	. $(PKGROOT)/.pkginfo; \
+	tar -c --zstd -C $(PKGROOT) -f $$name.$$version.$$arch.$$os.ypkg2.tar.zst .
+	mv *.ypkg2.* $(PKG_DIR)
+
+install: makepkg
+	ypkg2 install $(PKG_DIR)/*
+
+yports_clean: yports_clean_src
+	rm -fr $(PKG_DIR)
+	rm -fr $(PKGROOT)
+
+yports_clean_src:
+	rm -fr $(SRC_DIR)
