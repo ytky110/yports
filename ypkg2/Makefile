@@ -1,4 +1,4 @@
-SRC_URL = https://github.com/ytky110/aagen.git
+SRC_URL = https://github.com/ytky110/ypkg2.git
 
 .PHONY: build clean
 

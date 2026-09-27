@@ -6,7 +6,7 @@ PKGROOT ?= pkgroot
 
 .PHONY: fetch makepkg install yports_clean yports_clean_src
 
-fetch: yports_clean_src
+fetch: _clean_src
 	git clone $(SRC_URL) $(SRC_DIR)
 
 makepkg: build $(PKGROOT)/.pkginfo
@@ -18,9 +18,9 @@ makepkg: build $(PKGROOT)/.pkginfo
 install: makepkg
 	ypkg2 install $(PKG_DIR)/*
 
-yports_clean: yports_clean_src
+clean: _clean_src
 	rm -fr $(PKG_DIR)
 	rm -fr $(PKGROOT)
 
-yports_clean_src:
+_clean_src:
 	rm -fr $(SRC_DIR)
