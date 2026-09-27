@@ -9,7 +9,7 @@ PKGROOT ?= pkgroot
 fetch: _clean_src
 	git clone $(SRC_URL) $(SRC_DIR)
 
-makepkg: build $(PKGROOT)/.pkginfo
+makepkg: $(PKGROOT)/.pkginfo
 	mkdir -p $(PKG_DIR)
 	. $(PKGROOT)/.pkginfo; \
 	tar -c --zstd -C $(PKGROOT) -f $$name.$$version.$$arch.$$os.ypkg2.tar.zst .
