@@ -18,3 +18,8 @@ Make targets:
 - `makepkg`
 - `install`
 - `clean`
+
+---
+
+port's Makefile has to include `yports/yports.mk` or
+`yports/multi.yports.mk` in end (to make `build` as default target)
