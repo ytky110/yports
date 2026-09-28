@@ -15,7 +15,7 @@ clean:
 	    echo -e "\n$$p:"; \
 	    $(MAKE) -C $$p clean; \
 	done
-	echo
+	@echo
 	rm -fr $(PKG_DIR)
 	rm -fr $(PKGROOT)
 
