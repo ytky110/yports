@@ -1,4 +1,4 @@
-PORTLIST = dumper ycat
+PORTLIST = blank dumper shyft siunx uncert ycat ydat
 
 build: build_repos
 	@echo -e "\nstart build:"
