@@ -1,4 +1,5 @@
 SRC_URL ?= # Set in port Makefile
+SRC_COMMIT ?= # Set in port Makefile, but optional
 
 PKG_DIR ?= pkg
 SRC_DIR ?= src
