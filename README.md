@@ -3,6 +3,8 @@
 Yports is a original ports tree for [ypkg2](https://github.com/ytky110/ypkg2)
 inspired of FreeBSD's ports.
 
+It's designed to use BSD `make`, `bmake` and not `gmake`.
+
 How to install:
 
 ```
