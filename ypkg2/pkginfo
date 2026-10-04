@@ -1,5 +1,5 @@
 pkgversion=2
 name=ypkg2
-version=0.5.2
+version=0.6.0
 arch=any
 os=any
