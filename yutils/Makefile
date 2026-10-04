@@ -8,7 +8,7 @@ build: build_repos
 	    cp $$p/$(PKGROOT)/bin/* $(PKGROOT)/bin/; \
 	done
 	@echo -e "\nmaking pkginfo:"
-	../yports/makepkginfo.sh pkginfo $(PKGROOT)
+	../yports/makepkginfo.sh ./pkginfo $(PKGROOT)
 
 include ../yports/multi.yports.mk
 
