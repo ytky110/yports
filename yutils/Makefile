@@ -1,4 +1,4 @@
-PORTLIST = blank detab dumper shyft siunx uncert ycat ydat
+PORTLIST = blank detab dumper escaper shyft siunx uncert ycat ydat yndent
 
 build: build_repos
 	@echo -e "\nstart build:"
